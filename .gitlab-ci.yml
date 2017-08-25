@@ -1,25 +1,42 @@
- image: node:latest
-cache:
-  key: "$CI_BUILD_REF_NAME"
-  untracked: true
-  paths:
-    - node_modules/
-    - dist/
+image: node:5
 
 stages:
+  - test
   - build
-# - test
-  - deploy
-  - cleanup
-# - deployProd
 
-runBuild:
-  before_script:
-   - apt-get install -y lftp
-   - npm install -g angular-cli
-   - npm install
-  stage: build
+cache:
+  key: "$CI_PROJECT_NAME/$CI_BUILD_REF_NAME"
+  paths:
+    - ./node_modules/
+
+before_script:
+  - export PATH=$PATH:./node_modules/.bin/
+  - npm install
+
+tslint_job:
+  stage: test
+  tags:
+    - linux
+    - docker
   script:
-    - ng build --target=production --environment=test
-  except:
-    - tags
+    - ng lint
+
+test_job:
+  stage: test
+  tags:
+    - linux
+    - docker
+  script:
+    - karma start --browsers PhantomJS --single-run
+
+build_job:
+  stage: build
+  tags:
+    - linux
+    - docker
+  artifacts:
+    expire_in: 1 week
+    paths:
+      - dist/*
+  script:
+    - ng build --aot-prod --bh "./"
