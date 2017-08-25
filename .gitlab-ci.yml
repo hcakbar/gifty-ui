@@ -1,0 +1,25 @@
+ image: node:latest
+cache:
+  key: "$CI_BUILD_REF_NAME"
+  untracked: true
+  paths:
+    - node_modules/
+    - dist/
+
+stages:
+  - build
+# - test
+  - deploy
+  - cleanup
+# - deployProd
+
+runBuild:
+  before_script:
+   - apt-get install -y lftp
+   - npm install -g angular-cli
+   - npm install
+  stage: build
+  script:
+    - ng build --target=production --environment=test
+  except:
+    - tags
