@@ -1,42 +1,13 @@
-image: node:5
-
-stages:
-  - test
-  - build
+image: node:4.2.2
 
 cache:
-  key: "$CI_PROJECT_NAME/$CI_BUILD_REF_NAME"
   paths:
-    - ./node_modules/
+  - node_modules/
 
-before_script:
-  - export PATH=$PATH:./node_modules/.bin/
-  - npm install
+services:
+  - postgres:9.5.0
 
-tslint_job:
-  stage: test
-  tags:
-    - linux
-    - docker
+all_tests:
   script:
-    - ng lint
-
-test_job:
-  stage: test
-  tags:
-    - linux
-    - docker
-  script:
-    - karma start --browsers PhantomJS --single-run
-
-build_job:
-  stage: build
-  tags:
-    - linux
-    - docker
-  artifacts:
-    expire_in: 1 week
-    paths:
-      - dist/*
-  script:
-    - ng build --aot-prod --bh "./"
+   - npm install
+   - node ./specs/start.js
