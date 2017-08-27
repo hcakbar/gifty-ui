@@ -1,0 +1,13 @@
+image: node:4.2.2
+
+cache:
+  paths:
+  - node_modules/
+
+services:
+  - postgres:9.5.0
+
+all_tests:
+  script:
+   - npm install
+   - node ./specs/start.js
