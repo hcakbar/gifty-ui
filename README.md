@@ -1,9 +1,11 @@
-# GiftyUi
-## Environment Setup
-Install nodejs (https://nodejs.org/en/download/). Setup environment variable path if not created.
-Verify version (cmd `node -v`)
-Under project root (gifty-ui) cmd `ng serve`
-
+# Gifty-Ui
+##Angular 4 app (with angluar cli)
+Standard project directories: `c:/projects/gifty/gifty-ui`
+* install nodejs (https://nodejs.org/en/download/)
+* `cmd npm -v`
+* `cmd projects/{app_name}` 
+* `npm install -g @angular/cli`
+* `ng --version`
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
