@@ -28,7 +28,7 @@
 <div class="container" ng-controller="GiftyUiCtrl as ctrl">
     <div class="row">
         <ul class="list-group">
-            <li class="list-group-item" ng-repeat="item in ctrl.items" ng-click="ctrl.selectedItem($index)">
+            <li class="list-group-item" ng-repeat="item in ctrl.items" ng-click="ctrl.selectItem($index)">
                 <span>{{item.name}}</span>
             </li>
         </ul>
