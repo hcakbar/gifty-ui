@@ -29,7 +29,9 @@
     <div class="row">
         <ul class="list-group">
             <li class="list-group-item" ng-repeat="item in ctrl.items" ng-click="ctrl.selectItem($index)">
-                <span>{{item.name}}</span>
+                <p>{{item.name}}</p>
+                <p>Price: {{item.price}}</p>
+                <img width="218" height="218" class="media-object" ng-src="{{item.url}}" alt="...">
             </li>
         </ul>
     </div>
@@ -37,22 +39,21 @@
     <div class="media">
         <div class="media-body">
             <h4 class="media-heading">Description</h4>
-            <a href="#">
-                <img width="218" height="218" class="media-object" ng-src="{{ctrl.selectedItem.url}}" alt="...">
-            </a>
-            <p>Price: {{ctrl.selectedItem.price}}</p>
+            <!--<a href="#">-->
+            <!--<img width="218" height="218" class="media-object" ng-src="{{ctrl.selectedItem.url}}" alt="...">-->
+            <!--</a>-->
+            <!--<p>Price: {{ctrl.selectedItem.price}}</p>-->
+            <!--TODO move description in items box show when click-->
             <p>{{ctrl.selectedItem.description}}</p>
         </div>
     </div>
 </div>
 <br/>
-<div>
-    <p> TODO: POC: $http.get(external api)</p>
-</div>
 
 <div style="text-align:center" ng-controller="FooterCtrl as footer">
     <p>{{footer.footerContent}}</p>
-    <p>[- {{footer.author[0] + " & " + footer.author[1] + " | " + footer.company + " | " + footer.version + " | " + footer.date}} -]</p>
+    <p>[- {{footer.author[0] + " & " + footer.author[1] + " | " + footer.company + " | " + footer.version + " | " +
+        footer.date}} -]</p>
 </div>
 </body>
 </html>

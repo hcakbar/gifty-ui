@@ -3,9 +3,13 @@
     app.controller("GiftyUiCtrl", GiftyUiCtrl);
 
     function GiftyUiCtrl(ItemsDataSvc) {
-        this.items = ItemsDataSvc.items;
+        var self = this;
+        ItemsDataSvc.getItems()
+            .then(function (data) {
+                self.items = data;
+            })
 
-        this.selectItem = function(index) {
+        this.selectItem = function (index) {
             this.selectedItem = this.items[index];
         }
     }
