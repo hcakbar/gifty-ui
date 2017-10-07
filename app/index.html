@@ -1,83 +1,98 @@
 <html ng-app="GiftyUi">
-<header>
-    <title>Gifty</title>
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gifty-ui-bootstrap-ui-layout</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/untitled.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="app.js"></script>
     <script src="js/appconfig.service.js"></script>
     <script src="js/appname.service.js"></script>
     <script src="js/items.controllers.js"></script>
     <script src="js/itemsdata.service.js"></script>
-</header>
+</head>
 
 <body>
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-        <!-- Logo -->
-        <div class="navbar-header" ng-controller="HeaderCtrl as head">
-            <a href="#" class="navbar-brand">{{head.appTitle}}</a>
+        <div class="navbar-header"><a class="navbar-brand navbar-link" href="#"><strong>Gifty</strong> </a>
+            <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navcol-1"><span
+                    class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span
+                    class="icon-bar"></span></button>
         </div>
-        <!-- Menu Items -->
-        <div>
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Our vision</a></li>
-                        <li><a href="#">Career</a></li>
-                        <li><a href="#">What's new?</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!--right align -->
+        <div class="collapse navbar-collapse" id="navcol-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Sign Up</a></li>
-                <li><a href="#">Sign In</a></li>
-                <li><a href="#">Logout</a></li>
+                <li class="active" role="presentation"><a href="#">Sign In </a></li>
+                <li role="presentation"><a href="#">Sign Up</a></li>
             </ul>
         </div>
     </div>
 </nav>
-<div style="text-align:center" ng-controller="HeaderCtrl as head">
-    <h1>{{head.appTitle}}</h1>
-    <img width="300" src="https://media0.giphy.com/media/5Y2bU7FqLOuzK/giphy.gif">
+
+<div id="promo">
+    <div class="jumbotron">
+        <div style="text-align:center" ng-controller="HeaderCtrl as head">
+            <h1>{{head.appTitle}} - Promo contents</h1>
+            <img width="300" src="https://media0.giphy.com/media/5Y2bU7FqLOuzK/giphy.gif">
+        </div>
+        <p>Add sign up promo contents here - text and image</p>
+        <p><a class="btn btn-default" role="button" href="#" style="color:rgb(51,51,51);font-size:20px;"><strong>Sign
+            Up</strong></a></p>
+    </div>
 </div>
 
-<div class="container" ng-controller="GiftyUiCtrl as ctrl">
-    <div class="row">
-        <ul class="list-group">
-            <li class="list-group-item" ng-repeat="item in ctrl.items" ng-click="ctrl.selectItem($index)">
-                <p>{{item.name}}</p>
-                <p>Price: {{item.price}}</p>
-                <img width="218" height="218" class="media-object" ng-src="{{item.url}}" alt="...">
-            </li>
-        </ul>
-    </div>
+<!--Registry contents - name of registry owner, events type, date of events with day spell out, and remaining days-->
+<div class="container site-section" id="welcome">
+    <h1>Registry Owner Name's - Event Name</h1>
+    <p><strong>On, Monday, January 1st 2018</strong></p>
+    <p><i>"We want your presence rather than your presents"</i></p>
+</div>
 
-    <div class="media">
-        <div class="media-body">
-            <h4 class="media-heading">Description</h4>
-            <!--<a href="#">-->
-            <!--<img width="218" height="218" class="media-object" ng-src="{{ctrl.selectedItem.url}}" alt="...">-->
-            <!--</a>-->
-            <!--<p>Price: {{ctrl.selectedItem.price}}</p>-->
-            <!--TODO move description in items box show when click-->
-            <p>{{ctrl.selectedItem.description}}</p>
+<!--Products/items list here (name, quantity, cost, image, brief description-->
+<div class="container product-lists" id="product-list" ng-controller="GiftyUiCtrl as ctrl">
+    <div class="row">
+        <div class="col-md-4 products" class="list-group-item" ng-repeat="item in ctrl.items"
+             ng-click="ctrl.selectItem($index)"><i class="fa fa-gift"></i>
+            <p>{{item.name}}</p>
+            <p>Price: {{item.price}}</p>
+            <img width="218" height="218" class="media-object" ng-src="{{item.url}}" alt="...">
         </div>
     </div>
 </div>
-<br/>
 
-<div style="text-align:center" ng-controller="FooterCtrl as footer">
-    <p>{{footer.footerContent}}</p>
-    <p>[- {{footer.author[0] + " & " + footer.author[1] + " | " + footer.company + " | " + footer.version + " | " +
-        footer.date}} -]</p>
-</div>
+    <!--TODO remove this-->
+    <div style="text-align:center" ng-controller="FooterCtrl as footer">
+        <p>{{footer.footerContent}}</p>
+        <p>[- {{footer.author[0] + " & " + footer.author[1] + " | " + footer.company + " | " + footer.version + " | " +
+            footer.date}} -]</p>
+    </div>
+
+    <!--footer contents-->
+    <div class="footer-basic">
+        <footer>
+            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i
+                    class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a
+                    href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <ul class="list-inline">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Terms</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+            </ul>
+            <p class="copyright">Company Name © 2016</p>
+        </footer>
+    </div>
 </body>
+
 </html>

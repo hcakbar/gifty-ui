@@ -1,0 +1,85 @@
+
+<!--TODO remove this page-->
+<html ng-app="GiftyUi">
+<header>
+    <title>Gifty</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="js/appconfig.service.js"></script>
+    <script src="js/appname.service.js"></script>
+    <script src="js/items.controllers.js"></script>
+    <script src="js/itemsdata.service.js"></script>
+</header>
+
+<body>
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <div class="navbar-header" ng-controller="HeaderCtrl as head">
+            <a href="#" class="navbar-brand">{{head.appTitle}}</a>
+        </div>
+        <!-- Menu Items -->
+        <div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Our vision</a></li>
+                        <li><a href="#">Career</a></li>
+                        <li><a href="#">What's new?</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!--right align -->
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Sign Up</a></li>
+                <li><a href="#">Sign In</a></li>
+                <li><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div style="text-align:center" ng-controller="HeaderCtrl as head">
+    <h1>{{head.appTitle}}</h1>
+    <img width="300" src="https://media0.giphy.com/media/5Y2bU7FqLOuzK/giphy.gif">
+</div>
+
+<div class="container" ng-controller="GiftyUiCtrl as ctrl">
+    <div class="row">
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="item in ctrl.items" ng-click="ctrl.selectItem($index)">
+                <p>{{item.name}}</p>
+                <p>Price: {{item.price}}</p>
+                <img width="218" height="218" class="media-object" ng-src="{{item.url}}" alt="...">
+            </li>
+        </ul>
+    </div>
+
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading">Description</h4>
+            <!--<a href="#">-->
+            <!--<img width="218" height="218" class="media-object" ng-src="{{ctrl.selectedItem.url}}" alt="...">-->
+            <!--</a>-->
+            <!--<p>Price: {{ctrl.selectedItem.price}}</p>-->
+            <!--TODO move description in items box show when click-->
+            <p>{{ctrl.selectedItem.description}}</p>
+        </div>
+    </div>
+</div>
+<br/>
+
+<div style="text-align:center" ng-controller="FooterCtrl as footer">
+    <p>{{footer.footerContent}}</p>
+    <p>[- {{footer.author[0] + " & " + footer.author[1] + " | " + footer.company + " | " + footer.version + " | " +
+        footer.date}} -]</p>
+</div>
+</body>
+</html>
