@@ -1,5 +1,27 @@
 {
   "name": "gifty-ui",
-  "version": "0.0.1",
-  
+  "version": "1.0.0",
+  "description": "Standard project directories: `c:/projects/gifty/gifty-ui` * install nodejs (https://nodejs.org/en/download/) * `cmd npm -v` * `cmd projects/{app_name}`  * `npm install -g @angular/cli` * `ng --version` ## Development server",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-jasmine": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/gifty/gifty-ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/gifty/gifty-ui/issues"
+  },
+  "homepage": "https://gitlab.com/gifty/gifty-ui#README"
 }
