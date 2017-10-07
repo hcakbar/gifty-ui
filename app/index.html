@@ -64,6 +64,7 @@
         <div class="col-md-4 products" class="list-group-item" ng-repeat="item in ctrl.items"
              ng-click="ctrl.selectItem($index)"><i class="fa fa-gift"></i>
             <p>{{item.name}}</p>
+            <p>Product SKU: {{item.id}}</p>
             <p>Price: {{item.price}}</p>
             <img width="218" height="218" class="media-object" ng-src="{{item.url}}" alt="...">
         </div>
