@@ -61,12 +61,14 @@
 <!--Products/items list here (name, quantity, cost, image, brief description-->
 <div class="container product-lists" id="product-list" ng-controller="GiftyUiCtrl as ctrl">
     <div class="row">
+        <br>
         <div class="col-md-4 products" class="list-group-item" ng-repeat="item in ctrl.items"
              ng-click="ctrl.selectItem($index)"><i class="fa fa-gift"></i>
             <p>{{item.name}}</p>
-            <p>Product SKU: {{item.id}}</p>
+            <p>ID: {{item.id}}</p>
             <p>Price: {{item.price}}</p>
             <img width="218" height="218" class="media-object" ng-src="{{item.url}}" alt="...">
+            <br>
         </div>
     </div>
 </div>
