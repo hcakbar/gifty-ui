@@ -1,0 +1,57 @@
+#promo {
+  text-align:center;
+  padding:40px;
+  background:none;
+  background-size:cover;
+}
+
+#promo .jumbotron {
+  border-radius:20px;
+  padding:40px;
+  background-color:rgba(255,255,255,0.75);
+  max-width:800px;
+  margin:auto;
+}
+
+@media (min-width:1200px) {
+  #promo .jumbotron {
+    padding:20px;
+  }
+}
+
+.container .site-section {
+  text-align:left;
+  padding:60px 0;
+}
+
+#welcome p {
+  max-width:800px;
+  font-size:14px;
+  /*margin:auto;*/
+  text-align: left;
+}
+
+.site-secion h1 {
+  font-weight:normal;
+  margin-bottom:20px;
+}
+
+#product-list .products {
+  font-size:14px;
+}
+
+.fa.fa-gift {
+  font-size:20px;
+  align-items:center;
+}
+
+#logo {
+  max-height:25px;
+  margin-right:5px;
+  margin-top:-20px;
+  display:inline-block;
+}
+
+body {
+  font-family:Arial, Helvetica, sans-serif;
+}

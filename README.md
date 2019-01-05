@@ -1,12 +1,3 @@
-# Gifty UI app
-## Insturctions
-### Environment Setup
-Install nodejs (https://nodejs.org/en/download/). Setup environment variable path if not created.
-Verify version (cmd `node -v`)
-Under project root (gifty-ui) cmd `ng serve`
-
-### Development server
-
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ### Code scaffolding
