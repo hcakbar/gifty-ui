@@ -1,7 +1,7 @@
 # Gifty UI app
 User can register an event, send invitation, add or update products, and get product status.
 
-```Java, Spring MVC, Maven```
+```JavaScript, Angular 2, Karma-Jasmine```
 
 ## Insturctions
 ### Environment Setup
